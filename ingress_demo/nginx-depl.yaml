@@ -10,11 +10,15 @@ spec:
     matchLabels:
       app: nginx
   template:
-    containers:
-      - name: nginx
-        image: nginx
-        ports:
-          - containerPort: 80
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
