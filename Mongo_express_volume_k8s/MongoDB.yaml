@@ -17,6 +17,18 @@ spec:
       containers:
         - name: mongodb
           image: mongo
+          restartPolicy: always
+          livenessProbe:
+            exec:
+              command:
+                - "mongo"
+                - "--eval"
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 15
+            timeoutSeconds: 10 # means within 10 seconds pod has to response to the command
+            periodSeconds: 10 # every 10 seconds probe executes
+            failureThreshold: 3 # after count of 3 probe failure pod will be considered as unhealthy and will be restarted
+            successThreshold: 1
           ports:
             - containerPort: 27017
           env:
