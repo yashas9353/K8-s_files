@@ -53,3 +53,7 @@ minikube node list
 # To remove a node from the cluster
 
 minikube node delete <node-name>
+
+# To overwrite a label of a node
+
+kubectl label node minikube-m02 rank=4 --overwrite=true
