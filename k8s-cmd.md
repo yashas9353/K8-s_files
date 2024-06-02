@@ -45,3 +45,11 @@ kubectl delete deployment.yaml
 docker build --no-cache -f <path_of_dockerfile> .
 
 # no-cache will use new configuration while building
+
+# To list all the nodes in the cluster
+
+minikube node list
+
+# To remove a node from the cluster
+
+minikube node delete <node-name>
