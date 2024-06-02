@@ -57,3 +57,9 @@ minikube node delete <node-name>
 # To overwrite a label of a node
 
 kubectl label node minikube-m02 rank=4 --overwrite=true
+
+# To Delete a label of a node
+
+kubectl label node <node_name> <label_key>-
+
+kubectl label nodes minikube-m02 rank-
