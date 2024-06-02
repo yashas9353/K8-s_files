@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nodeaffinity-example
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: nodeaffinity-example
@@ -22,6 +22,14 @@ spec:
               - matchExpressions:
                   - key: rank
                     operator: Lt
+                    values:
+                      - "5"
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 10
+              preference:
+                matchExpressions:
+                  - key: rank
+                    operator: Gt
                     values:
                       - "5"
       containers:

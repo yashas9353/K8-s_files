@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podaffinity
+  labels:
+    app: podaffinity
+spec:
+  selector:
+    matchLabels:
+      app: podaffinity
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: podaffinity
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - nodeaffinity-example
+              topologyKey: kubernetes.io/hostname

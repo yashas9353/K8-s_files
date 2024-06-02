@@ -45,3 +45,29 @@ kubectl delete deployment.yaml
 docker build --no-cache -f <path_of_dockerfile> .
 
 # no-cache will use new configuration while building
+
+# To list all the nodes in the cluster
+
+minikube node list
+
+# To remove a node from the cluster
+
+minikube node delete <node-name>
+
+# To overwrite a label of a node
+
+kubectl label node minikube-m02 rank=4 --overwrite=true
+
+# To Delete a label of a node
+
+kubectl label node <node_name> <label_key>-
+
+kubectl label nodes minikube-m02 rank-
+
+# To taint a node we have a command
+
+kubectl taint node <node_name> env=production:<taint_type>
+
+## we have 3 types of taint 1) NoSchedule 2) PreferNoSchedule 3)NoExecute
+
+example : kubectl taint node minikube-m02 env=production:NoExecute
