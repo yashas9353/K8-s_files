@@ -71,3 +71,11 @@ kubectl taint node <node_name> env=production:<taint_type>
 ## we have 3 types of taint 1) NoSchedule 2) PreferNoSchedule 3)NoExecute
 
 example : kubectl taint node minikube-m02 env=production:NoExecute
+
+# Manual scaling using kubectl
+
+kubectl scale deployment <deployment-name> --replicas=<number-of-replicas>
+
+# example :
+
+kubectl scale deployment my-app --replicas=5
