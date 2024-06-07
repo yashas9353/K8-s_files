@@ -32,6 +32,22 @@ cmd : openssl genrsa -out yashas.key 2048
 
 cmd : openssl req -new -key yashas.key -out yashas.csr -subj "/CN=yashas/O=dev/O=example.org"
 
+# for windows
+
+cmd : openssl req -new -key yashas.key -out yashas.csr -subj "//CN=yashas"
+
 CN stands for Command name/user name.
 
 O acts as a group name. we can all user to a multiple group
+
+the above command as sent the request to sign the certificate, now certificate-authority which is there in /.kube/config in your case it (C:\Users\yashas j\.minikube\ca.crt) file has to sign that request
+
+# To sign it we have a command :
+
+openssl x509 -req -CA "C:\Users\yashas j\.minikube\ca.crt" -CAkey "C:\Users\yashas j\.minikube\ca.key" -CAcreateserial -days 730 -in yashas.csr -out yashas.crt
+
+# Next step is to add user with command :
+
+kubectl config set-credentials yashas --client-certificate=yashas.crt --client-key=yashas.key
+
+note : if the above command didnt work when you enter this in curret directory, place crt file and key file in .kube folder and open terminal in .kube folder and run the command.
