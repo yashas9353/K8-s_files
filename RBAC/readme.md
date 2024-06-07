@@ -55,3 +55,7 @@ note : if the above command didnt work when you enter this in curret directory, 
 # For context we have commad :
 
 kubectl config set-context yashas-minikube --cluster=minikube --user=yashas --namespace=default
+
+# subject can we user or group or service account (subject + role) is done using rolebinding
+
+![alt text](rolebinding.png)
