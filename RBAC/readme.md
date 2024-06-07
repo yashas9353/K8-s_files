@@ -13,3 +13,25 @@ after user and role are created, we need to create a roleblinding component whic
 we also have clusterRole and clusterRoleBinding components for cluster level access.
 
 ![Authentication and authorization](authandaoth.png)
+
+whenever we crate a minikube cluster all the configuration related to the cluster is stored in /.kube/config file
+
+in /.kube/config file we have all the configuration related to the cluster
+
+we will have cluster name and users also
+
+# Note : cluster will have certificate-authority from this authority only user has to get the certificate, then only user is authenticated or else not.\
+
+so to authenticate aginist minikube we first need to generate certificate and that certificate has to be signed by certificate-authority which minikube cluster using.
+
+# first we need to generate a private certificate using openssl
+
+cmd : openssl genrsa -out yashas.key 2048
+
+# Next we need to create certificate signing request for the user with above key
+
+cmd : openssl req -new -key yashas.key -out yashas.csr -subj "/CN=yashas/O=dev/O=example.org"
+
+CN stands for Command name/user name.
+
+O acts as a group name. we can all user to a multiple group
