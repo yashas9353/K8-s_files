@@ -51,3 +51,7 @@ openssl x509 -req -CA "C:\Users\yashas j\.minikube\ca.crt" -CAkey "C:\Users\yash
 kubectl config set-credentials yashas --client-certificate=yashas.crt --client-key=yashas.key
 
 note : if the above command didnt work when you enter this in curret directory, place crt file and key file in .kube folder and open terminal in .kube folder and run the command.
+
+# For context we have commad :
+
+kubectl config set-context yashas-minikube --cluster=minikube --user=yashas --namespace=default
