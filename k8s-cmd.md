@@ -79,3 +79,11 @@ kubectl scale deployment <deployment-name> --replicas=<number-of-replicas>
 # example :
 
 kubectl scale deployment my-app --replicas=5
+
+# To Switch context
+
+kubectl config use-context <context_name>
+
+# To list context
+
+kubectl config get-contexts
