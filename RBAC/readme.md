@@ -12,4 +12,4 @@ after user and role are created, we need to create a roleblinding component whic
 
 we also have clusterRole and clusterRoleBinding components for cluster level access.
 
-![Authentication and authorization](<Screenshot 2024-06-07 140337.png>)
+![Authentication and authorization](authandaoth.png)
