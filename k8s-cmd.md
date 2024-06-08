@@ -88,7 +88,7 @@ kubectl config use-context <context_name>
 
 kubectl config get-contexts
 
-# Port forward
+# Port forward (only for the pod)
 
 kubectl port-forward <pod_name> <pod_container_port>:<port_forward_port>
 
