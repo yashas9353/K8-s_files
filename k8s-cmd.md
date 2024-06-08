@@ -87,3 +87,13 @@ kubectl config use-context <context_name>
 # To list context
 
 kubectl config get-contexts
+
+# Port forward
+
+kubectl port-forward <pod_name> <pod_container_port>:<port_forward_port>
+
+example : kubectl port-forward node-example-h2323 8081:8080
+
+# list in all namespaces
+
+kubectl get pods -A --> -A mean all namespaces
