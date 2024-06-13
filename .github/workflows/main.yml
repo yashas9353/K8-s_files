@@ -1,0 +1,28 @@
+name: simple workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run Hello world
+      run: echo "Hello World"
+      shell: bash
+
+  welcome:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: run welcome world
+      run: echo "Welcome World"
+      shell: bash
+  
